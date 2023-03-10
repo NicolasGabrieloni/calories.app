@@ -8,6 +8,7 @@ import { Peso } from './Peso';
 import { CalculoCalorias } from './CalculoCalorias';
 import { CalculoImc } from './CalculoImc';
 import { Faf } from './FAF';
+import { Info } from './Info'
 
 
 function App() {
@@ -191,9 +192,14 @@ function App() {
     }
     console.log(finalResult)
   }
+  //
 
-
-
+  // CALCULO IMC //
+let IMCresult;
+  const calculoIMC = () => {
+    IMCresult = numberPeso / Math.pow(numberAlt / 100, 2);
+    console.log(IMCresult)
+  }
 
   return (
     <div>
@@ -249,8 +255,12 @@ function App() {
         <CalculoCalorias
           calculoTMB={calculoTMB}
         />
-        <CalculoImc />
+        <CalculoImc 
+        calculoIMC={calculoIMC}
+        />
       </div>
+
+      <Info />
     </div>
   );
 }

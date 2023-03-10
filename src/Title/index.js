@@ -4,7 +4,7 @@ import './Title.css'
 
 function Title() {
     return (
-        <div>
+        <div className="titleContainer">
             <h1 className="title">CALCULADORA DE CALORIAS/IMC</h1>
 
             <p className="texto">Para calcular, necesitamos que completes tus datos</p>

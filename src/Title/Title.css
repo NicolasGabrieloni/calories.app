@@ -1,3 +1,10 @@
+.titleContainer {
+    display: inline-block;
+    background-color: rgb(204, 213, 174);
+    width: 100%;
+    margin-bottom: 30px;
+}
+
 .title {
     font-size: 35px;
     color: black;
