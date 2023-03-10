@@ -1,0 +1,61 @@
+.genero {
+    margin: 20px;
+    background-color: rgb(204, 213, 174);
+    color: rgb(20, 33, 61);
+    border-radius: 70px;
+    width: 400px;
+    height: 200px;
+}
+.genero span {
+    font-size: 40px;
+}
+.genero h3{
+    margin: 16px;
+}
+
+.gender {
+    width: 70px;
+    margin: 0 20px 27px 20px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color: rgb(212, 163, 115);
+    border: none;
+    box-shadow: 0px 0px 5px 0px black;
+}
+.gender:hover {
+    scale: 1.05;
+    transition: .3s;
+}
+
+.buttons {
+    display: flex;
+    width: 400px;
+    height: 110px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.genero p {
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+    font-size: 20px;
+    border-radius: 100%;
+    color: rgb(254, 250, 224);
+    background-color: rgb(20, 33, 61);
+}
+
+.active {
+    width: 70px;
+    margin: 0 20px 27px 20px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color: aqua;
+    border: none;
+    box-shadow: 0px 0px 5px 0px black;
+}

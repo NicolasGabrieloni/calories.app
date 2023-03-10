@@ -1,0 +1,20 @@
+.calculoIMC {
+    margin: 20px;
+    display: inline-block;
+    width: 300px;
+    height: 60px;
+    color: white;
+    background-color: rgb(212, 163, 115);
+    color: rgb(20, 33, 61);
+    border-radius: 70px;
+    cursor: pointer;
+}
+
+.calculoIMC  p {
+    margin-top: 20px;
+}
+
+.calculoIMC:hover {
+    scale: 1.05;
+    transition: .3s;
+}
