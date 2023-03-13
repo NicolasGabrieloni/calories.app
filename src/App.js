@@ -6,14 +6,16 @@ import { Edad } from './Edad';
 import { Altura } from './Altura';
 import { Peso } from './Peso';
 import { CalculoCalorias } from './CalculoCalorias';
-import { CalculoImc } from './CalculoImc';
 import { Faf } from './FAF';
-import { Info } from './Info'
+import { Info } from './Info';
+import { Credits } from './Credits';
+import { Modal } from './Modal';
+import { CuadroModal } from './CuadroModal';
 
 
 function App() {
 
-  // GENDER LOGIC //
+  ///////////////// GENDER LOGIC  /////////////////  
   const [gender, setGender] = useState(true);
 
   const clickHandler = () => {
@@ -31,17 +33,17 @@ function App() {
     clickHandler()
     console.log(variableGenero)
   }
-  //
 
-  // EDAD LOGIC //
+
+  ///////////////// EDAD LOGIC  /////////////////  
   let numberAge;
   const takeAge = (event) => {
     numberAge = parseInt(event.target.value);
     console.log(numberAge)
   }
-  //
 
-  // ALTURA LOGIC //
+
+  ///////////////// ALTURA LOGIC /////////////////
   const [cm, setCm] = useState(true);
 
   const medicionAltura = () => {
@@ -57,10 +59,10 @@ function App() {
     }
     console.log(numberAlt);
   }
-  //
 
 
-  // PESO LOGIC //
+
+  ///////////////// PESO LOGIC  /////////////////
   const [peso, setPeso] = useState(true);
   const miRef = useRef(null)
 
@@ -82,9 +84,10 @@ function App() {
     }
     console.log(numberPeso);
   }
-  //
 
-  // FAF LOGIC 
+
+
+  ///////////////// FAF LOGIC  /////////////////
 
   const [muyligero, setMuyligero] = useState(false);
   const [ligero, setLigero] = useState(false);
@@ -146,8 +149,15 @@ function App() {
 
 
 
-  // CALCULO CAL //
+  ///////////////// OPEN MODAL  /////////////////
+  const [openModal, setOpenModal] = useState(false);
 
+  const abrirModal = () => {
+    setOpenModal(!openModal)
+  }
+
+
+  ///////////////// CALCULO CAL  /////////////////
   let finalResult;
   let totalTMB;
 
@@ -183,23 +193,25 @@ function App() {
     } else if (mactivo === true) { finalResult = totalTMB * 1.9 }
   }
 
-
   const calculoTMB = () => {
     if (gender === true) {
       totalMacho()
     } else {
       totalHembra()
     }
+    calculoIMC()
     console.log(finalResult)
+    setOpenModal(true);
   }
-  //
 
-  // CALCULO IMC //
-let IMCresult;
+  ///////////////// CALCULO IMC  /////////////////
+  let IMCresult;
   const calculoIMC = () => {
     IMCresult = numberPeso / Math.pow(numberAlt / 100, 2);
     console.log(IMCresult)
   }
+
+
 
   return (
     <div>
@@ -247,7 +259,6 @@ let IMCresult;
           selectModerado={selectModerado}
           selectActivo={selectActivo}
           selectMuyActivo={selectMuyActivo}
-
         />
       </div>
 
@@ -255,12 +266,19 @@ let IMCresult;
         <CalculoCalorias
           calculoTMB={calculoTMB}
         />
-        <CalculoImc 
-        calculoIMC={calculoIMC}
-        />
       </div>
 
       <Info />
+      <Credits />
+
+      {!!openModal && (
+        <Modal>
+          <CuadroModal
+            abrirModal={abrirModal}
+            finalResult={finalResult}
+          />
+        </Modal>
+      )}
     </div>
   );
 }

@@ -1,0 +1,23 @@
+.buttonModal {
+    width: 60px;
+    height: 30px;
+    color: black;
+    background-color: rgb(212, 163, 115);
+    border-radius: 70px;
+    cursor: pointer;
+    border: none;
+    margin-top: 160px;
+}
+
+.containerResult {
+    width: 400px;
+    height: 500px;
+    background-color: rgba(204, 213, 174, 0.712);
+    border-radius: 70px;
+    display: inline-block;
+}
+
+.Result {
+    margin-top: 100px;
+    color: rgb(20, 33, 61);
+}

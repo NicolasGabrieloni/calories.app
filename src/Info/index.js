@@ -14,6 +14,49 @@ function Info() {
                 <p className="textInfo">
                     Entonces, ¿cómo es que nuestra calculadora da con tu necesidad calórica exacta? Tu consumo de calorías depende de varios factores, incluidos el género, la edad y la actividad diaria. Nuestra calculadora de calorías diarias tiene en cuenta todos esos factores. El género, por ejemplo, juega un papel esencial en el cálculo de calorías diarias necesarias: no requieren las mismas calorías diarias mujeres, hombres o niños. Los hombres tienen por norma general un mayor porcentaje muscular que las mujeres. Ya que los músculos queman calorías mucho más rápido que la grasa, la necesidad calórica de los hombres suele ser mayor que la de las mujeres. La edad también es importante: a medida que nuestros cuerpos envejecen, queman cada vez menos calorías. Eso significa que conforme una persona envejece su metabolismo se ralentiza y, por tanto, el número de calorías necesarias al día disminuye. Este es un factor esencial, especialmente para alguien que no reduce su consumo calórico de un año para otro y que en consecuencia gana peso. Por último, pero no por ello menos importante, está el factor de la actividad y el estilo de vida. Aquellas personas con un estilo de vida más activo quemarán más calorías durante el día y necesitarán más calorías. Por supuesto, quienes además hagan deporte y, por tanto, aumenten su masa muscular, tendrán una necesidad calórica aún mayor.
                 </p>
+
+                <h2 className="titleInfo">¿Qué es el índice de masa corporal?</h2>
+                <p className="textInfo">
+                    El IMC es una herramienta utilizada por agentes de la salud (principalmente médicos y nutricionistas) para determinar el peso ideal de una persona.
+                    El IMC es el valor que se obtiene pesando (en kilogramos) y midiendo (en metros) al sujeto a evaluar, aplicando una fórmula.                </p>
+
+
+                <table className="tableIMC">
+                    <thead>
+                        <tr>
+                            <th className="tittleTable">IMC</th>
+                            <th className="tittleTable">CATEGORIA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bajo Peso</td>
+                            <td>menos de 18,5 </td>
+
+                        </tr>
+                        <tr>
+                            <td>Peso Normal</td>
+                            <td>18-25</td>
+
+                        </tr>
+                        <tr>
+                            <td>Sobrepeso</td>
+                            <td>25-29</td>
+                        </tr>
+                        <tr>
+                            <td>Obesidad grado I</td>
+                            <td>29-34,5</td>
+                        </tr>
+                        <tr>
+                            <td>Obesidad grado II</td>
+                            <td>35-39,9</td>
+                        </tr>
+                        <tr>
+                            <td>Obesidad grado III</td>
+                            <td>más de 40</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     )

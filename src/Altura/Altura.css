@@ -47,7 +47,8 @@
 }
 
 .activecm {
-    background-color: aqua;
+    background-color: rgb(55, 61, 75);
+    color: white;
     border: none;
     cursor: pointer;
     border-radius: 50px;
