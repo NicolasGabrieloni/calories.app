@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Title } from './Title';
 import { Genero } from './Genero';
@@ -15,202 +15,234 @@ import { CuadroModal } from './CuadroModal';
 
 function App() {
 
-  ///////////////// GENDER LOGIC  /////////////////  
-  const [gender, setGender] = useState(true);
+
+  const [state, setState] = useState({
+    valueEdad: '',
+    valueAlto: '',
+    valuePeso: '',
+    valueFaf: '',
+    gender: true,
+    cm: true,
+    peso: true,
+    muyligero: false,
+    ligero: false,
+    moderado: false,
+    activo: false,
+    mactivo: false,
+    openModal: false,
+    finalResult: '',
+    imc: '',
+    IMCresult: '',
+  })
+
+
+  ///////////////// GENDER LOGIC  /////////////////
 
   const clickHandler = () => {
-    setGender(!gender)
-  }
-
-  let variableGenero;
-
-  const varGender = () => {
-    if (gender) {
-      variableGenero = false;
-    } else {
-      variableGenero = true;
-    }
-    clickHandler()
-    console.log(variableGenero)
+    setState({
+      ...state,
+      gender: !state.gender,
+      finalResult: '',
+    });
   }
 
 
-  ///////////////// EDAD LOGIC  /////////////////  
-  let numberAge;
+  ///////////////// EDAD LOGIC  /////////////////
+
   const takeAge = (event) => {
-    numberAge = parseInt(event.target.value);
-    console.log(numberAge)
+    setState((prevState) => ({
+      ...prevState,
+      valueEdad: parseInt(event.target.value),
+    }));
   }
-
 
   ///////////////// ALTURA LOGIC /////////////////
-  const [cm, setCm] = useState(true);
 
   const medicionAltura = () => {
-    setCm(!cm);
+    setState({
+      ...state,
+      cm: !state.cm,
+      valueAlto: '',
+    });
   };
 
-  let numberAlt;
   const numAlt = (event) => {
-    if (cm === true) {
-      numberAlt = parseInt(event.target.value);
+    const multipler = 30.48;
+    const numbercm = event.target.value;
+    if (state.cm === true) {
+      setState({
+        ...state,
+        valueAlto: parseInt(numbercm),
+      })
     } else {
-      numberAlt = parseInt(event.target.value * 30.48);
+      setState({
+        ...state,
+        valueAlto: numbercm * multipler,
+      })
     }
-    console.log(numberAlt);
   }
-
 
 
   ///////////////// PESO LOGIC  /////////////////
-  const [peso, setPeso] = useState(true);
-  const miRef = useRef(null)
-
   const medicionPeso = () => {
-    setPeso(!peso);
-    clearInput()
+    setState({
+      ...state,
+      peso: !state.peso,
+      valuePeso: '',
+    });
   };
 
-  const clearInput = () => {
-    miRef.current.textContent = "";
-  }
 
-  let numberPeso;
+
   const numPeso = (event) => {
-    if (peso === true) {
-      numberPeso = parseInt(event.target.value);
+    const divider = 2.205;
+    const numberpeso = event.target.value;
+    if (state.peso === true) {
+      setState({
+        ...state,
+        valuePeso: parseInt(numberpeso),
+      })
     } else {
-      numberPeso = parseInt(event.target.value / 2.205);
+      setState({
+        ...state,
+        valuePeso: numberpeso / divider,
+      })
     }
-    console.log(numberPeso);
   }
 
 
 
   ///////////////// FAF LOGIC  /////////////////
 
-  const [muyligero, setMuyligero] = useState(false);
-  const [ligero, setLigero] = useState(false);
-  const [moderado, setModerado] = useState(false);
-  const [activo, setActivo] = useState(false);
-  const [mactivo, setMactivo] = useState(false);
-
-  let variableFaf;
 
   const selectMuyLigero = () => {
-    setMuyligero(!muyligero);
-    setLigero(false);
-    setModerado(false);
-    setActivo(false);
-    setMactivo(false);
-    variableFaf = 1.2;
-    console.log(variableFaf)
+    setState({
+      ...state,
+      muyligero: true,
+      ligero: false,
+      moderado: false,
+      activo: false,
+      mactivo: false,
+    });
   }
 
   const selectLigero = () => {
-    setLigero(!ligero);
-    setMuyligero(false);
-    setModerado(false);
-    setActivo(false);
-    setMactivo(false);
-    variableFaf = 1.375;
-    console.log(variableFaf)
+    setState({
+      ...state,
+      muyligero: false,
+      ligero: true,
+      moderado: false,
+      activo: false,
+      mactivo: false,
+    });
   }
 
   const selectModerado = () => {
-    setModerado(!moderado);
-    setLigero(false);
-    setMuyligero(false);
-    setActivo(false);
-    setMactivo(false);
-    variableFaf = 1.55;
-    console.log(variableFaf)
+    setState({
+      ...state,
+      muyligero: false,
+      ligero: false,
+      moderado: true,
+      activo: false,
+      mactivo: false,
+    });
   }
 
   const selectActivo = () => {
-    setActivo(!activo);
-    setModerado(false);
-    setLigero(false);
-    setMuyligero(false);
-    setMactivo(false);
-    variableFaf = 1.725;
-    console.log(variableFaf)
+    setState({
+      ...state,
+      muyligero: false,
+      ligero: false,
+      moderado: false,
+      activo: true,
+      mactivo: false,
+    });
   }
 
   const selectMuyActivo = () => {
-    setMactivo(!mactivo);
-    setActivo(false);
-    setModerado(false);
-    setLigero(false);
-    setMuyligero(false);
-    variableFaf = 1.9;
-    console.log(variableFaf)
+    setState({
+      ...state,
+      muyligero: false,
+      ligero: false,
+      moderado: false,
+      activo: false,
+      mactivo: true,
+    });
   }
 
-
-
   ///////////////// OPEN MODAL  /////////////////
-  const [openModal, setOpenModal] = useState(false);
 
   const abrirModal = () => {
-    setOpenModal(!openModal)
+    setState({
+      ...state,
+      openModal: !state.openModal,
+    });
   }
 
 
   ///////////////// CALCULO CAL  /////////////////
-  let finalResult;
-  let totalTMB;
-
-  const totalMacho = () => {
-    totalTMB = 66.473
-      + (13.751 * numberPeso)
-      + (5.0035 * numberAlt)
-      - (6.7550 * numberAge);
-    if (muyligero === true) {
-      finalResult = totalTMB * 1.2
-    } else if (ligero === true) {
-      finalResult = totalTMB * 1.375
-    } else if (moderado === true) {
-      finalResult = totalTMB * 1.55
-    } else if (activo === true) {
-      finalResult = totalTMB * 1.725
-    } else if (mactivo === true) { finalResult = totalTMB * 1.9 }
-  }
-
-  const totalHembra = () => {
-    totalTMB = 655.1
-      + (9.463 * numberPeso)
-      + (1.8 * numberAlt)
-      - (4.6756 * numberAge);
-    if (muyligero === true) {
-      finalResult = totalTMB * 1.2
-    } else if (ligero === true) {
-      finalResult = totalTMB * 1.375
-    } else if (moderado === true) {
-      finalResult = totalTMB * 1.55
-    } else if (activo === true) {
-      finalResult = totalTMB * 1.725
-    } else if (mactivo === true) { finalResult = totalTMB * 1.9 }
-  }
-
   const calculoTMB = () => {
-    if (gender === true) {
+    if (state.gender === true) {
       totalMacho()
     } else {
       totalHembra()
     }
     calculoIMC()
-    console.log(finalResult)
-    setOpenModal(true);
+    console.log(state.finalResult)
+    setState({
+      ...state,
+      openModal: true,
+    });
   }
+
+  const totalestmb1 = 66.473
+    + (13.751 * state.valuePeso)
+    + (5.0035 * state.valueAlto)
+    - (6.7550 * state.valueEdad);
+
+  const totalMacho = () => {
+    if (state.muyligero === true) {
+      state.finalResult = (totalestmb1 * 1.2).toFixed(2)
+    } else if (state.ligero === true) {
+      state.finalResult = (totalestmb1 * 1.375).toFixed(2)
+    } else if (state.moderado === true) {
+      state.finalResult = (totalestmb1 * 1.55).toFixed(2)
+    } else if (state.activo === true) {
+      state.finalResult = (totalestmb1 * 1.725).toFixed(2)
+    } else if (state.mactivo === true) {
+      state.finalResult = (totalestmb1 * 1.9).toFixed(2)
+    }
+  }
+
+  const totalestmb2 = 655.1
+    + (9.463 * state.valuePeso)
+    + (1.8 * state.valueAlto)
+    - (4.6756 * state.valueEdad);
+
+  const totalHembra = () => {
+    if (state.muyligero === true) {
+      state.finalResult = (totalestmb2 * 1.2).toFixed(2)
+    } else if (state.ligero === true) {
+      state.finalResult = (totalestmb2 * 1.375).toFixed(2)
+    } else if (state.moderado === true) {
+      state.finalResult = (totalestmb2 * 1.55).toFixed(2)
+    } else if (state.activo === true) {
+      state.finalResult = (totalestmb2 * 1.725).toFixed(2)
+    } else if (state.mactivo === true) {
+      state.finalResult = (totalestmb2 * 1.9).toFixed(2)
+    }
+  }
+
 
   ///////////////// CALCULO IMC  /////////////////
-  let IMCresult;
-  const calculoIMC = () => {
-    IMCresult = numberPeso / Math.pow(numberAlt / 100, 2);
-    console.log(IMCresult)
+  const handleImc = () => {
+    setState(state.imc + state.IMCresult)
   }
-
+  const calculoIMC = () => {
+    state.IMCresult = (state.valuePeso / Math.pow(state.valueAlto / 100, 2)).toFixed(1);
+    handleImc()
+    console.log(state.IMCresult)
+  }
 
 
   return (
@@ -221,39 +253,34 @@ function App() {
         <div className='bloq1'>
 
           <Genero
-            gender={gender}
-            setGender={setGender}
+            state={state}
             clickHandler={clickHandler}
-            varGender={varGender}
           />
 
           <Edad
             takeAge={takeAge}
+            Edad={state.Edad}
           />
         </div>
 
         <div className='bloq2'>
           <Altura
-            cm={cm}
-            setCm={setCm}
+            cm={state.cm}
             medicionAltura={medicionAltura}
             numAlt={numAlt}
           />
           <Peso
-            peso={peso}
-            setPeso={setPeso}
+            peso={state.peso}
             medicionPeso={medicionPeso}
             numPeso={numPeso}
-            miRef={miRef}
-            clearInput={clearInput}
           />
         </div>
         <Faf
-          muyligero={muyligero}
-          ligero={ligero}
-          moderado={moderado}
-          activo={activo}
-          mactivo={mactivo}
+          muyligero={state.muyligero}
+          ligero={state.ligero}
+          moderado={state.moderado}
+          activo={state.activo}
+          mactivo={state.mactivo}
           selectMuyLigero={selectMuyLigero}
           selectLigero={selectLigero}
           selectModerado={selectModerado}
@@ -271,11 +298,12 @@ function App() {
       <Info />
       <Credits />
 
-      {!!openModal && (
+      {!!state.openModal && (
         <Modal>
           <CuadroModal
             abrirModal={abrirModal}
-            finalResult={finalResult}
+            finalResult={state.finalResult}
+            imc={state.IMCresult}
           />
         </Modal>
       )}

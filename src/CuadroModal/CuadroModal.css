@@ -20,4 +20,14 @@
 .Result {
     margin-top: 100px;
     color: rgb(20, 33, 61);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result2 {
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
 }

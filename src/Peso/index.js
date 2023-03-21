@@ -9,7 +9,6 @@ function Peso(props) {
             <p>4</p>
             <h3>¿Cuanto pesas?</h3>
             <input
-                ref={props.miRef}
                 type="number"
                 onChange={props.numPeso}
             ></input>
