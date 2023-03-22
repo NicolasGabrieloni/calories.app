@@ -2,13 +2,13 @@
     width: 100%;
     text-align: center;
     margin: 70px auto 0 auto;
-    height: 1200px;
+    min-height: 800px;
     background-color: rgb(204, 213, 174);
     display: inline-block;
 }
 
-.childContainer{
-    width: 840px;
+.childContainer {
+    max-width: 840px;
     text-align: center;
     margin: auto;
 }
@@ -33,9 +33,34 @@
 table {
     width: 500px;
 }
+
 table td {
     border: 1px solid black;
 }
+
 .tittleTable {
     background-color: rgb(212, 163, 115);
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.readMore {
+    color: rgb(216, 108, 0);
+    cursor: pointer;
+}
+
+.readMore:hover {
+    color: rgb(255, 162, 69);
+}
+
+@media (max-width: 560px) {
+    .tableIMC {
+        width: 300px;
+    }
 }

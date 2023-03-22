@@ -11,14 +11,14 @@
 
 .containerResult {
     width: 400px;
-    height: 500px;
+    height: 400px;
     background-color: rgba(204, 213, 174, 0.712);
     border-radius: 70px;
     display: inline-block;
 }
 
 .Result {
-    margin-top: 100px;
+    margin-top: 60px;
     color: rgb(20, 33, 61);
     display: flex;
     flex-direction: column;
@@ -30,4 +30,10 @@
     border-radius: 20px;
     margin: 20px;
     padding: 20px;
+}
+
+@media (max-width: 450px) {
+    .containerResult {
+        width: 300px;
+    }
 }

@@ -3,7 +3,7 @@
     background-color: rgb(204, 213, 174);
     color: rgb(20, 33, 61);
     border-radius: 70px;
-    width: 400px;
+    max-width: 400px;
     height: 200px;
 }
 .genero span {
@@ -60,3 +60,12 @@
     border: none;
     box-shadow: 0px 0px 5px 0px black;
 }
+
+@media (max-width: 450px) {
+    .genero {
+      width: 330px;
+    }
+    .buttons {
+        width: 330px;
+    }
+  }

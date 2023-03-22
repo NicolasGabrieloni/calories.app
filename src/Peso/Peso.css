@@ -58,3 +58,9 @@
     border: none;
     box-shadow: 0px 0px 5px 0px black;
 }
+
+@media (max-width: 450px) {
+    .peso {
+      width: 330px;
+    }
+  }

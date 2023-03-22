@@ -33,7 +33,24 @@ function App() {
     finalResult: '',
     imc: '',
     IMCresult: '',
+    readMore: false,
+    readMore2: false,
   })
+
+  const readMoreHandler = () => {
+    setState({
+      ...state,
+      readMore: !state.readMore,
+    })
+    console.log(state.readMore)
+  }
+  const readMoreHandler2 = () => {
+    setState({
+      ...state,
+      readMore2: !state.readMore2,
+    })
+    console.log(state.readMore2)
+  }
 
 
   ///////////////// GENDER LOGIC  /////////////////
@@ -245,6 +262,7 @@ function App() {
   }
 
 
+
   return (
     <div>
       <Title />
@@ -295,7 +313,12 @@ function App() {
         />
       </div>
 
-      <Info />
+      <Info 
+      readMore2={state.readMore2}
+      readMoreHandler2={readMoreHandler2}
+      readMore={state.readMore}
+      readMoreHandler={readMoreHandler}
+      />
       <Credits />
 
       {!!state.openModal && (
