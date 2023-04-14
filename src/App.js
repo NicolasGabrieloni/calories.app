@@ -85,7 +85,7 @@ function App() {
 
   const numAlt = (event) => {
     const multipler = 30.48;
-    const numbercm = event.target.value;
+    const numbercm = parseInt(event.target.value);
     if (state.cm === true) {
       setState({
         ...state,
@@ -113,7 +113,7 @@ function App() {
 
   const numPeso = (event) => {
     const divider = 2.205;
-    const numberpeso = event.target.value;
+    const numberpeso = parseInt(event.target.value);
     if (state.peso === true) {
       setState({
         ...state,
@@ -213,9 +213,9 @@ function App() {
   }
 
   const totalestmb1 = 66.473
-    + (13.751 * state.valuePeso)
-    + (5.0035 * state.valueAlto)
-    - (6.7550 * state.valueEdad);
+    + (13.751 * parseInt(state.valuePeso))
+    + (5.0035 * parseInt(state.valueAlto))
+    - (6.7550 * parseInt(state.valueEdad));
 
   const totalMacho = () => {
     if (state.muyligero === true) {
@@ -232,9 +232,9 @@ function App() {
   }
 
   const totalestmb2 = 655.1
-    + (9.463 * state.valuePeso)
-    + (1.8 * state.valueAlto)
-    - (4.6756 * state.valueEdad);
+    + (9.463 * parseInt(state.valuePeso))
+    + (1.8 * parseInt(state.valueAlto))
+    - (4.6756 * parseInt(state.valueEdad));
 
   const totalHembra = () => {
     if (state.muyligero === true) {
