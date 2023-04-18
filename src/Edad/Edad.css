@@ -6,6 +6,9 @@
     display: inline-block;
     width: 400px;
     height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .edad p {
@@ -18,8 +21,10 @@
     background-color: rgb(20, 33, 61);
 }
 
-.edad h3 {
+.edad label {
     margin: 16px;
+    font-weight: 1000;
+    font-size: 18px;
 }
 
 .edad input {
@@ -36,6 +41,6 @@
 
 @media (max-width: 450px) {
     .edad {
-      width: 330px;
+        width: 330px;
     }
-  }
+}
